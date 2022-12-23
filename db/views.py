@@ -2,8 +2,8 @@
 from rest_framework.response import Response
 from rest_framework import generics, viewsets
 from rest_framework.views import APIView
-from db.serializers import GlossarySerializer
-from .models import Glossary
+from db.serializers import FavouriteGlossarySerializer, GlossarySerializer
+from .models import FavouriteGlossary, Glossary
 from rest_framework.permissions import *
 # Create your views here.
 
@@ -17,19 +17,27 @@ class GlossaryListView(generics.ListCreateAPIView):
     serializer_class = GlossarySerializer
 
 
-
 class GlossaryAPIDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Glossary.objects.all()
     serializer_class = GlossarySerializer
 
 
+# favouriteGlossies 
+class FavouriteGlossaryViewSet(generics.ListCreateAPIView):
+    queryset = FavouriteGlossary.objects.all()
+    serializer_class = FavouriteGlossarySerializer
+
+
+class FavouriteGlossaryAPIDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = FavouriteGlossary.objects.all()
+    serializer_class = FavouriteGlossarySerializer
 
 
 # class PersonView(APIView):
 #     def get (self, request): # GET запрос показать всех объектов
 #         person = Person.objects.all() #Получение всех объектов с БД
 #         serializer = PersonSerializer(person, many=True)
-        
+
 #         return Response ({
 #             "person":serializer.data
 #         })
@@ -40,7 +48,7 @@ class GlossaryAPIDetail(generics.RetrieveUpdateDestroyAPIView):
 #         if serializer.is_valid(raise_exception=True):
 #                 persons_saved = serializer.save()
 #         return Response({"Готово":"Люди '{}' добавлен успешно.".format(persons_saved.name)})
-          
+
 #     def put(self,request, *args, **kwargs ):# PUT запрос изменение объекта
 #         pk = kwargs.get("pk", None)
 #         if not pk:
@@ -49,7 +57,7 @@ class GlossaryAPIDetail(generics.RetrieveUpdateDestroyAPIView):
 #             instance = Person.objects.get(pk=pk)
 #         except:
 #             return Response({"Ошибка":"Не найдено объект"})
-        
+
 #         serializers = PersonSerializer(data=request.data, instance=instance)
 #         serializers.is_valid(raise_exception=True)
 #         serializers.save()

@@ -2,12 +2,20 @@
 from dataclasses import fields
 from rest_framework import serializers
 
-from db.models import Glossary
+from db.models import FavouriteGlossary, Glossary
+
+
 
 class GlossarySerializer(serializers.ModelSerializer):
     class Meta:
         model = Glossary
         fields = "__all__"
+
+class FavouriteGlossarySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FavouriteGlossary
+        fields = '__all__'
+
 
     # name = serializers.CharField(max_length = 20)
     # firstName = serializers.CharField(max_length = 50)
