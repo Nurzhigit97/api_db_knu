@@ -7,11 +7,8 @@ from django.db import models
 class Glossary(models.Model):
     title = models.CharField(max_length=250, verbose_name="Термин")
     description = models.TextField(verbose_name="Описание")
+    isFavourite = models.BooleanField(verbose_name="Избранный")
 
-class FavouriteGlossary(models.Model):
-    title = models.CharField(max_length=100, verbose_name="Термин")
-    description = models.CharField(max_length=200, verbose_name="Описание")
-    
     def __str__(self):
         return self.title
 

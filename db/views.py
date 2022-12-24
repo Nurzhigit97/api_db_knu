@@ -2,8 +2,8 @@
 from rest_framework.response import Response
 from rest_framework import generics, viewsets
 from rest_framework.views import APIView
-from db.serializers import FavouriteGlossarySerializer, GlossarySerializer
-from .models import FavouriteGlossary, Glossary
+from db.serializers import GlossarySerializer
+from .models import  Glossary
 from rest_framework.permissions import *
 # Create your views here.
 
@@ -22,15 +22,6 @@ class GlossaryAPIDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = GlossarySerializer
 
 
-# favouriteGlossies 
-class FavouriteGlossaryViewSet(generics.ListCreateAPIView):
-    queryset = FavouriteGlossary.objects.all()
-    serializer_class = FavouriteGlossarySerializer
-
-
-class FavouriteGlossaryAPIDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = FavouriteGlossary.objects.all()
-    serializer_class = FavouriteGlossarySerializer
 
 
 # class PersonView(APIView):
