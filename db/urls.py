@@ -17,12 +17,12 @@ urlpatterns = [
     # Изменение и удаление
     path('glossary/detail/<int:pk>/', GlossaryAPIDetail.as_view()),
 
-  # Получение всех объектов добавленных от пользователей
-    path('addedGlossaryByUser/view/all/', GlossariesAddedByUsersListView.as_view()),
+    # Получение всех объектов добавленных от пользователей
+    path('addedGlossaryByUser/view/all/', CheckGlossaryListView.as_view()),
     # Добавление нового объекта добавленных от пользователей
-    path('addedGlossaryByUser/create/', GlossariesAddedByUsersListView.as_view()),
+    path('addedGlossaryByUser/create/', CheckGlossaryListView.as_view()),
     # Изменение и удаление глоссария от пользователей
-    path('addedGlossaryByUser/detail/<int:pk>/', GlossaryAddedByUserAPIDetail.as_view()),
+    path('addedGlossaryByUser/detail/<int:pk>/', CheckGlossaryAPIDetail.as_view()),
 
 ]
 

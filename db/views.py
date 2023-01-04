@@ -2,8 +2,8 @@
 from rest_framework.response import Response
 from rest_framework import generics, viewsets
 from rest_framework.views import APIView
-from db.serializers import CheckAddedGlossaryByUserSerializer, GlossarySerializer
-from .models import  CheckAddedGlossaryByUser, Glossary
+from db.serializers import CheckGlossarySerializer, GlossarySerializer
+from .models import  CheckGlossary, Glossary
 from rest_framework.permissions import *
 # Create your views here.
 
@@ -22,14 +22,14 @@ class GlossaryAPIDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = GlossarySerializer
 
 # for check to Admin, addded Glossay by user 
-class GlossariesAddedByUsersListView(generics.ListCreateAPIView):
-    queryset = CheckAddedGlossaryByUser.objects.all()
-    serializer_class = CheckAddedGlossaryByUserSerializer
+class CheckGlossaryListView(generics.ListCreateAPIView):
+    queryset = CheckGlossary.objects.all()
+    serializer_class = CheckGlossarySerializer
 
 
-class GlossaryAddedByUserAPIDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = CheckAddedGlossaryByUser.objects.all()
-    serializer_class = CheckAddedGlossaryByUserSerializer
+class CheckGlossaryAPIDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = CheckGlossary.objects.all()
+    serializer_class = CheckGlossarySerializer
 
 
 
