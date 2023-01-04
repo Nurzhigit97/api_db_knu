@@ -2,8 +2,7 @@
 from dataclasses import fields
 from rest_framework import serializers
 
-from db.models import  Glossary
-
+from db.models import CheckAddedGlossaryByUser, Glossary
 
 
 class GlossarySerializer(serializers.ModelSerializer):
@@ -11,6 +10,11 @@ class GlossarySerializer(serializers.ModelSerializer):
         model = Glossary
         fields = "__all__"
 
+
+class CheckAddedGlossaryByUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CheckAddedGlossaryByUser
+        fields = "__all__"
 
     # name = serializers.CharField(max_length = 20)
     # firstName = serializers.CharField(max_length = 50)
