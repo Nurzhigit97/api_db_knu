@@ -24,15 +24,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-7&+hjqgq(9ux9y$f60=^6+3^(7y@6%8=55z&&0$_xs$jk&a@-f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 # ! 10.0.2.2 for smartphone
-ALLOWED_HOSTS = ["*", "127.0.2.2", "127.0.0.1",
-                 "localhost", "0.0.0.0", "192.168.43.127"]
+ALLOWED_HOSTS = []
 CORS_ALLOW_ALL_ORIGINS = True
 # Application definition
 # python manage.py runserver 0.0.0.0:8000
 
-CORS_ORIGIN_WHITELIST = ["http://localhost:8000"]
 
 # Application definition
 
@@ -88,9 +86,6 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-        # "HOST": "127.0.0.1",
-        "HOST": "192.168.43.127",
-        "PORT": "8000",
     }
 }
 
@@ -130,11 +125,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-MEDIA_URL = "images/"
-
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-MEDIA_ROOT = os.path.join(BASE_DIR, "static/images")
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
